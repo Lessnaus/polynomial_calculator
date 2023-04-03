@@ -36,6 +36,7 @@
             this.multiplyButton = new System.Windows.Forms.Button();
             this.divideButton = new System.Windows.Forms.Button();
             this.resultLabel = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -117,12 +118,22 @@
             this.resultLabel.Text = "Wynik:";
             this.resultLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(207, 353);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "label2";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(403, 465);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.resultLabel);
             this.Controls.Add(this.divideButton);
             this.Controls.Add(this.multiplyButton);
@@ -149,6 +160,7 @@
         private System.Windows.Forms.Button multiplyButton;
         private System.Windows.Forms.Button divideButton;
         private System.Windows.Forms.Label resultLabel;
+        private System.Windows.Forms.Label label2;
     }
 }
 
