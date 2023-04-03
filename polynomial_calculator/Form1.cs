@@ -30,7 +30,8 @@ namespace polynomial_calculator
         {
             poly1 = firstPolynominalText.Text;
             poly2 = secondPolynominalText.Text;
-            //siema eniu
+            //todo: odczytać wielomiany 
+            //      dodać je
             resultLabel.Text = "Wynik: " + Environment.NewLine + result;
         }
 
