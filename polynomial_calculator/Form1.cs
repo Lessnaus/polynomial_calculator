@@ -30,7 +30,7 @@ namespace polynomial_calculator
         {
             poly1 = firstPolynominalText.Text;
             poly2 = secondPolynominalText.Text;
-
+            //siema eniu
             resultLabel.Text = "Wynik: " + Environment.NewLine + result;
         }
 
@@ -60,6 +60,10 @@ namespace polynomial_calculator
 
             resultLabel.Text = "Wynik: " + Environment.NewLine + result;
         }
-      
+
+        private void secondPolynominalText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
