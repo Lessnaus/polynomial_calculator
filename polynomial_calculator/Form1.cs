@@ -187,7 +187,11 @@ namespace polynomial_calculator
 
             for (int i = 0; i < wielomian1.Length; i++)
             {
-                if (wielomian1[i] == 'x')
+                if (wielomian1[i] == 'x' && i ==0)
+                {
+                    outputString1 += "1*x";
+                }
+                else if (wielomian1[i] == 'x')
                 {
                     outputString1 += "*x";
                 }
@@ -209,7 +213,11 @@ namespace polynomial_calculator
 
             for (int i = 0; i < wielomian2.Length; i++)
             {
-                if (wielomian2[i] == 'x')
+                if (wielomian2[i] == 'x' && i == 0)
+                {
+                    outputString2 += "1*x";
+                }
+                else if (wielomian2[i] == 'x')
                 {
                     outputString2 += "*x";
                 }
