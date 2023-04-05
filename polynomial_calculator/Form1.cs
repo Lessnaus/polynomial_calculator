@@ -50,6 +50,18 @@ namespace polynomial_calculator
                 {
                     outputString1 += "-1";
                 }
+                else if (wielomian1[i] == '+' && (i == 0 || wielomian1[i - 1] == '-'))
+                {
+                    outputString1 += "+1";
+                }
+                else if (wielomian1[i] == '-' && i != 0)
+                {
+                    outputString1 += "-1";
+                }
+                else if (wielomian1[i] == '+' && i != 0)
+                {
+                    outputString1 += "+1";
+                }
                 else if (wielomian1[i] == '+' || wielomian1[i] == '-')
                 {
                     outputString1 += wielomian1[i];
@@ -71,6 +83,18 @@ namespace polynomial_calculator
                 else if (wielomian2[i] == '-' && (i == 0 || wielomian2[i - 1] == '+'))
                 {
                     outputString2 += "-1";
+                }
+                else if (wielomian2[i] == '+' && (i == 0 || wielomian2[i - 1] == '-'))
+                {
+                    outputString2 += "+1";
+                }
+                else if (wielomian2[i] == '-' && i != 0)
+                {
+                    outputString2 += "-1";
+                }
+                else if (wielomian2[i] == '+' && i != 0)
+                {
+                    outputString2 += "+1";
                 }
                 else if (wielomian2[i] == '+' || wielomian2[i] == '-')
                 {
