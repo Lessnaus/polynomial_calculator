@@ -88,6 +88,8 @@ namespace polynomial_calculator
             String qwe = wynik.ToString();
 
             resultLabel.Text = "Wynik: " + qwe;
+
+            saveResult(wielomian1, wielomian2, qwe);
         }
 
         private void SubtractionEvent(object sender, EventArgs e)
@@ -276,28 +278,17 @@ namespace polynomial_calculator
 
         }
 
-        private void resultLabel_Click(object sender, EventArgs e)
+        private void saveResult(string wielomian1, string wielomian2, string result) 
         {
-            string result = resultLabel.Text;
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "result.txt");
 
-            //serialize result to json
-            string json = JsonConvert.SerializeObject(result, Formatting.Indented);
-            File.WriteAllText("result.json", json);
+            using (StreamWriter sw = new StreamWriter(filePath, true))
+            {
+                sw.WriteLine(wielomian1+" + "+wielomian2+" = "+ result);
+            }
 
-            string fullPath = Path.GetFullPath("result.json");
-            File.WriteAllText(fullPath, json);
-
-            Console.WriteLine($"Zapisano plik {"result.json"} w {fullPath}");
-            //deserialize json to object
-            string jsonFromFile = File.ReadAllText("result.json");
-            string resultFromFile = JsonConvert.DeserializeObject<string>(jsonFromFile);
-
-            //display results in label2 
-            label2.Text = resultFromFile;
 
         }
-
-
     }
 
 
