@@ -27,7 +27,6 @@ namespace polynomial_calculator
         {
             InitializeComponent();
 
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -50,6 +49,32 @@ namespace polynomial_calculator
 
             // Konwertuj wynik na łańcuch i wyświetl go w kontrolce tekstowej
             string resultStr = ConvertPolynomialToString(result);
+            Console.WriteLine(result);
+
+
+
+            string json = JsonConvert.SerializeObject(result, Formatting.Indented);
+            File.WriteAllText("result.json", json);
+
+            string fullpath = Path.GetFullPath("result.json");
+            File.WriteAllText(fullpath, json);
+
+            Console.WriteLine($"zapisano plik {"result.json"} w {fullpath}");
+            //deserialize json to object
+            string jsonfromfile = File.ReadAllText("result.json");
+
+            try
+            {
+                string resultfromfile = JsonConvert.DeserializeObject<string>(jsonfromfile);
+            }
+            catch (Exception)
+            {
+                label2.Text = "nie można znaleźć pliku/załadować historii";
+            }
+
+
+            //display result in label2;
+            //label2.Text = ResultFromFile;
 
 
 
@@ -98,21 +123,27 @@ namespace polynomial_calculator
         private void resultLabel_Click(object sender, EventArgs e)
         {
             string result = resultLabel.Text;
+            //write in console the result of the operation 
+
+
+            //Console.WriteLine(resultStr);
+
+
 
             //serialize result to json
-            string json = JsonConvert.SerializeObject(result, Formatting.Indented);
-            File.WriteAllText("result.json", json);
+            //string json = JsonConvert.SerializeObject(result, Formatting.Indented);
+            //File.WriteAllText("result.json", json);
 
-            string fullPath = Path.GetFullPath("result.json");
-            File.WriteAllText(fullPath, json);
+            //string fullPath = Path.GetFullPath("result.json");
+            //File.WriteAllText(fullPath, json);
 
-            Console.WriteLine($"Zapisano plik {"result.json"} w {fullPath}");
-            //deserialize json to object
-            string jsonFromFile = File.ReadAllText("result.json");
-            string resultFromFile = JsonConvert.DeserializeObject<string>(jsonFromFile);
+            //Console.WriteLine($"Zapisano plik {"result.json"} w {fullPath}");
+            ////deserialize json to object
+            //string jsonFromFile = File.ReadAllText("result.json");
+            //string resultFromFile = JsonConvert.DeserializeObject<string>(jsonFromFile);
 
-            //display results in label2 
-            label2.Text = resultFromFile;
+            ////display results in label2 
+            //label2.Text = resultFromFile;
 
         }
 
@@ -167,8 +198,13 @@ namespace polynomial_calculator
                 }
                 else
                 {
-                    coef = int.Parse(termStr);
-                    exp = 0;
+                    //if the numbers are in integer format add them normally 
+                    coef = 1;
+                    exp = int.Parse(termStr);
+
+
+                    //coef = int.Parse(termStr);
+                    //exp = 0;
                 }
 
                 // Dodaj nowy wyraz do listy

@@ -121,18 +121,17 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(207, 353);
+            this.label2.Location = new System.Drawing.Point(12, 428);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(0, 13);
             this.label2.TabIndex = 8;
-            this.label2.Text = "label2";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(403, 465);
+            this.ClientSize = new System.Drawing.Size(470, 526);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.resultLabel);
             this.Controls.Add(this.divideButton);
