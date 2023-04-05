@@ -89,7 +89,8 @@ namespace polynomial_calculator
 
             resultLabel.Text = "Wynik: " + qwe;
 
-            saveResult(wielomian1, wielomian2, qwe);
+            string znak = "+";
+            saveResult(wielomian1, znak, wielomian2, qwe);
         }
 
         private void SubtractionEvent(object sender, EventArgs e)
@@ -148,6 +149,8 @@ namespace polynomial_calculator
             String qwe = wynik.ToString();
 
             resultLabel.Text = "Wynik: " + qwe;
+            string znak = "-";
+            saveResult(wielomian1, znak, wielomian2, qwe);
         }
 
         private void MultiplycationEvent(object sender, EventArgs e)
@@ -206,7 +209,8 @@ namespace polynomial_calculator
             String qwe = wynik.ToString();
 
             resultLabel.Text = "Wynik: " + qwe;
-
+            string znak = "*";
+            saveResult(wielomian1, znak, wielomian2, qwe);
         }
 
         private void DivisionEvent(object sender, EventArgs e)
@@ -264,6 +268,8 @@ namespace polynomial_calculator
             String qwe = wynik.ToString();
 
             resultLabel.Text = "Wynik: " + qwe;
+            string znak = "/";
+            saveResult(wielomian1, znak ,wielomian2, qwe);
         }
 
         private void secondPolynominalText_TextChanged(object sender, EventArgs e)
@@ -278,13 +284,13 @@ namespace polynomial_calculator
 
         }
 
-        private void saveResult(string wielomian1, string wielomian2, string result) 
+        private void saveResult(string wielomian1,string znak, string wielomian2, string result) 
         {
             string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "result.txt");
 
             using (StreamWriter sw = new StreamWriter(filePath, true))
             {
-                sw.WriteLine(wielomian1+" + "+wielomian2+" = "+ result);
+                sw.WriteLine(wielomian1+" "+znak+" "+wielomian2+" = "+ result);
             }
 
 
