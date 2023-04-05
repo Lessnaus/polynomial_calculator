@@ -281,12 +281,30 @@ namespace polynomial_calculator
         private void saveResult(string wielomian1, string wielomian2, string result) 
         {
             string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "result.txt");
+            string fullPath = Path.GetFullPath("result.txt");
+            Console.WriteLine($"Zapisano plik {"result.txt"} w {fullPath}");
 
             using (StreamWriter sw = new StreamWriter(filePath, true))
             {
                 sw.WriteLine(wielomian1+" + "+wielomian2+" = "+ result);
             }
-
+            //display the last 5 lines of the file result.txt in label2
+            string[] lines = File.ReadAllLines(filePath);
+            int count = lines.Length;
+            if (count > 5)
+            {
+                for (int i = count - 5; i < count; i++)
+                {
+                    label2.Text += lines[i] + Environment.NewLine;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < count; i++)
+                {
+                    label2.Text += lines[i] + Environment.NewLine;
+                }
+            }
 
         }
     }
